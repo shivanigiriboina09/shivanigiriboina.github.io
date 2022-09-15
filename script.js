@@ -14,10 +14,10 @@ const retriveEntries = () => {
   return entries;
 };
 
-let Entries = retriveEntries();
+let Entries = retrieveEntries();
 
 const displayEntries = () => {
-  const entries = retriveEntries();
+  const entries = retrieveEntries();
 
   const rows = entries
     .map((entry) => {
@@ -25,9 +25,9 @@ const displayEntries = () => {
       const email = `<td class="td">${entry.email}</td>`;
       const password = `<td class="td">${entry.password}</td>`;
       const dob = `<td class="td">${entry.dob}</td>`;
-      const accseptConditions = `<td class="td">${entry.accseptConditions}</td>`;
+      const acceptConditions = `<td class="td">${entry.acceptConditions}</td>`;
 
-      const row = `<tr>${name} ${email} ${password} ${dob} ${accseptConditions}</tr>`;
+      const row = `<tr>${name} ${email} ${password} ${dob} ${acceptConditions}</tr>`;
       return row;
     })
     .join("\n");
@@ -62,7 +62,7 @@ const saveUserFrom = (event) => {
     email,
     password,
     dob,
-    accseptConditions,
+    acceptConditions,
   };
 
   Entries.push(entry_obj);
@@ -103,7 +103,7 @@ dateELE.addEventListener("change", () => {
   dateELE.style.border = "2px solid rgba(0, 0, 0, 0.4)";
   if (age < 18 || age > 55) {
     dateELE.setCustomValidity("Your age is not lies between 18 and 55");
-    dateELE.style.border = "2px solid red";
+    dateELE.style.border = "2px solid brown";
     return;
   } else {
     dateELE.setCustomValidity("");
@@ -121,4 +121,3 @@ function validate(ele) {
   } else {
     ele.setCustomValidity("");
   }
-}
